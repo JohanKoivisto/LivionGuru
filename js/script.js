@@ -25,6 +25,7 @@ const save = () => {
 }
 
 const sortQuestions = () => {
+  objectArray = []
   for (let i = 0; i < localStorage.length; i++) {
     // Parse jsons in localstorage back to objects and push to array for sorting
     const object = JSON.parse(localStorage.getItem(localStorage.key(i)))
@@ -45,6 +46,26 @@ const renderQuestions = () => {
       'questions-container'
     ).innerHTML += `<div class="question"><h3>Question: ${objectArray[i].question}</h3> <p>Type: ${objectArray[i].type}</p> <p>Date: ${objectArray[i].date}</p></div>`
   }
+}
+
+const filterQuestions = () => {
+  // get filter type from DOM
+  let type = document.getElementById('filter').value
+  // remove questions
+  document.getElementById('questions-container').innerHTML = ''
+  // sort by selected filter
+  if (type === "All") {
+      renderQuestions();
+  } else {
+    objectArray.forEach(el => {
+        el.type === type
+          ? (document.getElementById(
+              'questions-container'
+            ).innerHTML += `<div class="question"><h3>Question: ${el.question}</h3> <p>Type: ${el.type}</p> <p>Date: ${el.date}</p></div>`)
+          : null
+      })
+  }
+  
 }
 
 window.onload = renderQuestions()

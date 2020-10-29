@@ -18,6 +18,14 @@
     </div>
     <div class="main">
       <button onclick="popupOpen()">Add</button>
+      <label for="filter">Filter questions by type:</label>
+      <select id="filter" onchange="filterQuestions()">
+        <option disabled selected value>Select type</option>
+        <option value="All">Show all</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JS">JS</option>
+      </select>
     </div>
     <form id="formContainer">
       <h2>Fill in the information</h2>
