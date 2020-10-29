@@ -10,18 +10,14 @@ const cancel = () => {
 }
 
 const save = () => {
-  const question = document.getElementById('question').value
-  const type = document.getElementById('type').value
   const date = new Date()
   const newQuestion = {
-    question: question,
-    type: type,
+    question: document.getElementById('question').value,
+    type: document.getElementById('type').value,
     date: date
   }
   localStorage.setItem(date, JSON.stringify(newQuestion)) // date used as key
-  /* for (let i = 0; i < localStorage.length; i++) {
-        console.log(JSON.parse(localStorage.getItem(localStorage.key(i))))
-    } */
+  document.getElementById('formContainer').reset()
 }
 
 const sortQuestions = () => {
@@ -40,7 +36,6 @@ const sortQuestions = () => {
 }
 
 const renderQuestions = () => {
-  sortQuestions()
   for (let i = 0; i < objectArray.length; i++) {
     document.getElementById(
       'questions-container'
@@ -68,4 +63,8 @@ const filterQuestions = () => {
   
 }
 
-window.onload = renderQuestions()
+// Initialize webpage
+window.onload = () => {
+    sortQuestions();
+    renderQuestions();
+}
