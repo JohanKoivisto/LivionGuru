@@ -1,0 +1,11 @@
+#formContainer {
+  display: none;
+}
+
+.question {
+  background-color: aqua;
+  display: inline-block;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
