@@ -1,11 +1,61 @@
+body {
+  min-width: 400px;
+}
+
 #formContainer {
   display: none;
 }
 
+.question-main {
+  margin-left: 20px;
+}
+
+header {
+  background-color: #139bf5;
+  margin: 20px -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
 .question {
-  background-color: aqua;
-  display: inline-block;
-  margin: 15px;
+  background: #139bf5;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
   padding: 10px;
+  width: 300px;
+  margin: 16px;
+  float: left;
+  min-height: 180px;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.btn {
+  background-color: #139bf5; /* Green */
+  border: none;
   border-radius: 10px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.cancel {
+  background-color: #e4686e;
+}
+
+.btn:hover {
+  background-color: #1e3e83; /* Green */
+  color: white;
+}
+
+input[type='text'],
+select,
+textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }

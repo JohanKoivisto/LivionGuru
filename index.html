@@ -13,42 +13,49 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="header">
-      
-    </div>
-    <div class="main">
-      <button onclick="popupOpen()">Add</button>
-      <label for="filter">Filter questions by type:</label>
-      <select id="filter" onchange="filterQuestions()">
-        <option disabled selected value>Select type</option>
-        <option value="All">Show all</option>
-        <option value="HTML">HTML</option>
-        <option value="CSS">CSS</option>
-        <option value="JS">JS</option>
-      </select>
-    </div>
-    <form id="formContainer">
-      <h2>Fill in the information</h2>
-      <label for="question">
-        <strong>Your question: </strong>
-      </label> 
-      <input type="text" id="question" placeholder="..." name="question" required>
-      <label for="question-type">Category: </label>
+    <header>
+      <h1>Questions for the guru</h1>
+    </header>
+    <main>
+      <div class="question-main">
+        <button onclick="popupOpen()" class="btn">Add</button>
+        <label for="filter">Filter questions by type:</label>
+        <select id="filter" onchange="filterQuestions()">
+          <option disabled selected value>Select type</option>
+          <option value="All">Show all</option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JS">JS</option>
+        </select>
+      </div>
+      <form id="formContainer" class="question-main">
+        <h2>Fill in the information</h2>
+        <label for="question">
+          <strong>Your question: </strong>
+        </label>
+        <input
+          type="text"
+          id="question"
+          placeholder="..."
+          name="question"
+          required
+        />
+        <label for="question-type">Category: </label>
 
-      <select name="question-type" id="type">
-        <option value="HTML">HTML</option>
-        <option value="CSS">CSS</option>
-        <option value="JS">JS</option>
-      </select>
-      <button type="button" class="btn" onclick="save()">Save</button>
-      <button type="button" class="btn cancel" onclick="cancel()">Cancel</button>
-    </form>
-    <div id="questions-container">
-
-    </div>
-    <div class="footer">
-
-    </div>
+        <select name="question-type" id="type">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JS">JS</option>
+        </select>
+        <button type="button" class="btn" onclick="save()">Save</button>
+        <button type="button" class="btn cancel" onclick="cancel()">
+          Cancel
+        </button>
+      </form>
+      <div class container></div>
+      <div id="questions-container" class="container"></div>
+    </main>
+    <div class="footer"></div>
     <script src="js/script.js"></script>
   </body>
 </html>

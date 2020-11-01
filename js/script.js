@@ -1,4 +1,4 @@
-let objectArray = []
+let questionArray = []
 
 const popupOpen = () => {
   document.getElementById('formContainer').style.display = 'block'
@@ -21,14 +21,14 @@ const save = () => {
 }
 
 const sortQuestions = () => {
-  objectArray = []
+  questionArray = []
   for (let i = 0; i < localStorage.length; i++) {
     // Parse jsons in localstorage back to objects and push to array for sorting
     const object = JSON.parse(localStorage.getItem(localStorage.key(i)))
-    objectArray.push(object)
+    questionArray.push(object)
   }
-
-  objectArray = objectArray.sort((a, b) => {
+  // sort by date
+  questionArray = questionArray.sort((a, b) => {
     dateA = new Date(a.date)
     dateB = new Date(b.date)
     return dateB - dateA
@@ -36,10 +36,9 @@ const sortQuestions = () => {
 }
 
 const renderQuestions = () => {
-  for (let i = 0; i < objectArray.length; i++) {
-    document.getElementById(
-      'questions-container'
-    ).innerHTML += `<div class="question"><h3>Question: ${objectArray[i].question}</h3> <p>Type: ${objectArray[i].type}</p> <p>Date: ${objectArray[i].date}</p></div>`
+  for (let i = 0; i < questionArray.length; i++) {
+    document.getElementById('questions-container').innerHTML +=
+    `<div class="question"><h3>Question: ${questionArray[i].question}</h3> <p>Type: ${questionArray[i].type}</p> <p>Date: ${questionArray[i].date}</p></div>`
   }
 }
 
@@ -48,19 +47,17 @@ const filterQuestions = () => {
   let type = document.getElementById('filter').value
   // remove questions
   document.getElementById('questions-container').innerHTML = ''
-  // sort by selected filter
+  // sort by selected filter and output to DOM
   if (type === "All") {
       renderQuestions();
   } else {
-    objectArray.forEach(el => {
+    questionArray.forEach(el => {
         el.type === type
-          ? (document.getElementById(
-              'questions-container'
-            ).innerHTML += `<div class="question"><h3>Question: ${el.question}</h3> <p>Type: ${el.type}</p> <p>Date: ${el.date}</p></div>`)
+          ? (document.getElementById('questions-container').innerHTML +=
+          `<div class="question"><h3>Question: ${el.question}</h3> <p>Type: ${el.type}</p> <p>Date: ${el.date}</p></div>`)
           : null
       })
   }
-  
 }
 
 // Initialize webpage
