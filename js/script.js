@@ -16,8 +16,12 @@ const save = () => {
     type: document.getElementById('type').value,
     date: date
   }
-  localStorage.setItem(date, JSON.stringify(newQuestion)) // date used as key
-  document.getElementById('formContainer').reset()
+  if (newQuestion.question !== "") {
+    localStorage.setItem(date, JSON.stringify(newQuestion)) // date used as key
+    document.getElementById('formContainer').reset()
+  } else {
+    document.getElementById("question").placeholder = "Ask a question here";
+  }
 }
 
 const sortQuestions = () => {
