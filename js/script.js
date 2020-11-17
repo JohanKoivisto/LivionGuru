@@ -42,7 +42,9 @@ const sortQuestions = () => {
 const renderQuestions = () => {
   for (let i = 0; i < questionArray.length; i++) {
     document.getElementById('questions-container').innerHTML +=
-    `<div class="question"><h3>Question: ${questionArray[i].question}</h3> <p>Type: ${questionArray[i].type}</p> <p>Date: ${questionArray[i].date}</p></div>`
+    `<div class="question"><h3>Question: ${questionArray[i].question}</h3>
+    <p>Type: ${questionArray[i].type}</p>
+    <p>Date: ${questionArray[i].date}</p></div>`
   }
 }
 
